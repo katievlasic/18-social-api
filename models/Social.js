@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
 const socialSchema = new mongoose.Schema({
-    item: { type: String, required: true },
-    // stockCount: Number,
-    // price: Number,
-    // inStock: Boolean,
+    name: { type: String, required: true },
+    age: Number,
     lastAccessed: { type: Date, default: Date.now },
   });
 
@@ -14,12 +12,10 @@ const handleError = (err) => console.error(err);
 
 Social.create(
   {
-    item: 'banana',
-    stockCount: 10,
-    price: 1,
-    inStock: true,
+    name: 'Katie',
+    age: 27
   },
-  (err) => (err ? handleError(err) : console.log('Created new document'))
+  (err) => (err ? handleError(err) : console.log('Created new user'))
 );
 
 module.exports = Social;
